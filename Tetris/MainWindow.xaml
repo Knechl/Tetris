@@ -1,0 +1,112 @@
+﻿<Window x:Class="Tetris.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tetris"
+        mc:Ignorable="d"
+        Title="Tetris" Height="650" Width="500"
+        ResizeMode="NoResize" Icon="/tetris.png">
+
+    <Grid Background="#231c35">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TETRIS Titel -->
+        <TextBlock Grid.Row="0" 
+                   Text="T  E  T  R  I  S" 
+                   Foreground="White" 
+                   FontFamily="ARCADECLASSIC"
+                   FontSize="37" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,10"/>
+
+        <Grid Grid.Row="1" Background="#000000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Linke Seite - HOLD -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <!-- HOLD Bereich -->
+            </StackPanel>
+
+            <!-- Mitte - Hauptspielfeld -->
+            <Border Grid.Column="1" 
+                    Background="#8D7EB0"
+                    BorderBrush="#342E4D" 
+                    BorderThickness="4" 
+                    Margin="10">
+                <!-- GameBoard = Grid wo man die Blöcke drauf malt -->
+                <Canvas Name="GameBoard" 
+                        Background="#342E4D"
+                        Width="240" 
+                        Height="480">
+                    <Grid Height="480" Width="240"/>
+                </Canvas>
+            </Border>
+
+            <StackPanel Grid.Column="2" Margin="10">
+
+                <!-- NEXT Bereich -->
+
+                <!-- Stats Bereich -->
+                <Border Background="#8D7EB0" 
+                        BorderBrush="#342E4D"
+                        BorderThickness="3" 
+                        Height="187" Width="128">
+                    <StackPanel Margin="12">
+
+                        <TextBlock Text="LINES" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="18"
+                                   FontWeight="Bold"/>
+                        <TextBlock Name="LinesText" 
+                                   Text="0" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="24" 
+                                   HorizontalAlignment="Right"
+                                   Margin="0,4,0,8"/>
+
+                        <TextBlock Text="TIME" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="19"
+                                   FontWeight="Bold"/>
+                        <TextBlock Name="TimeText" 
+                                   Text="0:00" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="24" 
+                                   HorizontalAlignment="Right"
+                                   Margin="0,4,0,8"/>
+
+                        <TextBlock Text="SCORE" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="19"
+                                   FontWeight="Bold"/>
+                        <TextBlock Name="ScoreText" 
+                                   Text="0" 
+                                   Foreground="White" 
+                                   FontFamily="ARCADECLASSIC"
+                                   FontSize="24" 
+                                   HorizontalAlignment="Right"
+                                   Margin="0,4,0,8"/>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
